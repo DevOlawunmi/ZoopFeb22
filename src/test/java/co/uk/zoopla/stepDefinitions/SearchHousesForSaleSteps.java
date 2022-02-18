@@ -1,19 +1,25 @@
 package co.uk.zoopla.stepDefinitions;
 
+import co.uk.zoopla.pages.BasePage;
+import co.uk.zoopla.pages.HomePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class SearchHousesForSaleSteps {
+public class SearchHousesForSaleSteps extends BasePage {
+    HomePage homePage = new HomePage(driver);
     @Given("I navigate to Zoopla homepage")
-    public void i_navigate_to_zoopla_homepage() {
+    public void i_navigate_to_zoopla_homepage() throws InterruptedException {
+        launchURL();
+        homePage.clickAcceptCookies();
 
     }
-    @Given("I accept all cookies")
-    public void i_accept_all_cookies() {
+//    @Given("I accept all cookies")
+//    public void i_accept_all_cookies() {
+//        clickAcceptCookies();
 
-    }
+  //  }
     @When("I enter {string} in the search field")
     public void i_enter_in_the_search_field(String string) {
 
